@@ -1,106 +1,111 @@
 # HackTrack
 
-**A personal workspace for managing hackathons, projects, learnings, and achievements.**
+HackTrack is a personal workspace for managing hackathons, projects, learnings, and achievements.
 
-HackTrack was built to solve a problem I kept running into during hackathons: information was scattered everywhere.
+The project was born from a common problem: information from hackathons tends to become scattered across browser tabs, documents, GitHub repositories, and note-taking apps. Registration links are easy to lose, project ideas become difficult to revisit, and valuable lessons often disappear once an event is over.
 
-Registration links lived in browser tabs, project notes were buried in documents, achievements were difficult to track, and reflections often disappeared once an event ended.
-
-HackTrack brings everything together in a single place. It helps track active and upcoming hackathons, document projects, record achievements, maintain structured journals, and preserve lessons learned from every event.
+HackTrack brings these pieces together in a single application. It helps track upcoming and active hackathons, organize projects, record achievements, maintain structured journals, and preserve lessons learned from every event.
 
 ---
 
-## ✨ Features
+## Overview
 
-### 📅 Hackathon Management
+HackTrack provides a centralized workspace for planning, participating in, and reflecting on hackathons. It combines event management, project tracking, journaling, and resource organization into a single application designed to make hackathon participation easier to manage over time.
 
-Track hackathons through their entire lifecycle:
+---
 
-* Upcoming hackathons
-* Live hackathons
+## Features
+
+### Hackathon Management
+
+Track hackathons throughout their lifecycle:
+
+* Upcoming events
+* Active hackathons
 * Completed hackathons
-* Automatic status detection based on start and end dates
-* Countdown timers for active events
+* Automatic status updates based on event dates
+* Countdown timers for ongoing events
 
-### 📌 Kanban Workflow
+### Kanban Board
 
-Visualize ongoing participation with a lightweight Kanban board:
+Monitor active participation using a lightweight Kanban workflow.
+
+Columns include:
 
 * Upcoming
 * Live
 
-Hackathons automatically move between columns as their status changes.
+Hackathons move automatically as their status changes.
 
-### 🏆 Participation History
+### Participation History
 
-Maintain a permanent record of your hackathon journey:
+Maintain a searchable record of every hackathon, including:
 
 * Project names
 * Achievements
-* Prize information
+* Awards
 * GitHub repositories
 * Event links
-* Learnings and reflections
+* Personal reflections
 
-### 📖 Structured Journaling
+### Journaling
 
-Document every hackathon with structured notes:
+Document each hackathon using structured notes covering:
 
-* Goal
+* Goals
 * Approach
 * Challenges
-* Outcome
-* Retrospective
+* Outcomes
+* Retrospectives
 
-These notes are stored and surfaced as a searchable knowledge base.
+### Learning Tracker
 
-### 🎓 Learning Tracker
+Capture lessons from every event, including:
 
-Capture lessons learned from every event:
-
-* Technical insights
-* Teamwork learnings
-* Product discoveries
+* Technical concepts
 * Development workflows
-* Mistakes and improvements
+* Team collaboration
+* Product ideas
+* Areas for improvement
 
-### 📅 Calendar View
+### Calendar
 
-Visualize important dates in one place:
+View important dates in one place, including:
 
 * Registration deadlines
 * Start dates
 * End dates
 
-### 🔗 Sites & Resources
+### Resources
 
-Maintain a curated collection of useful websites, tools, and project resources.
+Maintain a collection of useful links, tools, and references related to hackathons and projects.
 
-### 🔍 Search & Navigation
+### Search
 
-Quickly find information across:
+Search across:
 
 * Hackathons
 * Projects
 * Achievements
-* Learnings
+* Journals
+* Learning notes
 * Resources
 
-### 🔐 Secure Authentication
+### Authentication
 
-Powered by Supabase Auth and Row Level Security (RLS).
+Authentication is handled using Supabase Auth with Row Level Security (RLS).
 
-Visitors can browse content while administrative actions remain protected.
-
----
-
-## 🚀 Live Demo
-
-👉 https://hacktrack-gopal.vercel.app
+Visitors can browse public content while administrative actions remain protected.
 
 ---
 
-## 🛠 Tech Stack
+## Live Demo
+
+https://hacktrack-gopal.vercel.app
+
+---
+
+## Technology Stack
 
 ### Frontend
 
@@ -122,141 +127,135 @@ Visitors can browse content while administrative actions remain protected.
 
 ---
 
-## 🏁 Getting Started
+## Project Structure
 
-### 1. Create a Supabase Project
-
-Create a new project in Supabase and run the provided migration file.
-
-```sql
--- Paste the contents of supabase-migration-v2.sql
+```
+HackTrack/
+│
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── hackathons/
+│   │   ├── login/
+│   │   ├── participation-history/
+│   │   ├── sites/
+│   │   └── page.tsx
+│   │
+│   ├── components/
+│   ├── lib/
+│   └── middleware.ts
+│
+├── supabase-migration-v2.sql
+├── package.json
+└── README.md
 ```
 
-### 2. Configure Environment Variables
+---
+
+## Installation
+
+### Create a Supabase Project
+
+Create a new Supabase project and execute the SQL migration provided in:
+
+```
+supabase-migration-v2.sql
+```
+
+---
+
+### Configure Environment Variables
 
 Create a `.env.local` file:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 ```
 
-### 3. Clone the Repository
+---
 
-```bash
+### Clone the Repository
+
+```
 git clone https://github.com/gopal092003/HackTrack.git
+
 cd HackTrack
 ```
 
-### 4. Install Dependencies
+---
 
-```bash
+### Install Dependencies
+
+```
 npm install
 ```
 
-### 5. Start the Development Server
+---
 
-```bash
+### Start the Development Server
+
+```
 npm run dev
 ```
 
-Visit:
+Open the application:
 
-```text
+```
 http://localhost:3000
 ```
 
 ---
 
-## 📁 Project Structure
+## Why I Built This
 
-```text
-HackTrack/
-├── .gitignore
-├── next.config.ts
-├── package.json
-├── package-lock.json
-├── postcss.config.mjs
-├── supabase-migration-v2.sql
-├── tailwind.config.ts
-├── tsconfig.json
-│
-├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── hackathons/
-│   │   │   └── sites/
-│   │   ├── hackathons/
-│   │   ├── login/
-│   │   ├── participation-history/
-│   │   ├── sites/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx                 # Dashboard (home)
-│   │
-│   ├── components/
-│   │   ├── forms/                   # Form components (create/edit)
-│   │   ├── ui/                      # Reusable UI components (buttons, modals, etc.)
-│   │   ├── dashboard-client.tsx
-│   │   ├── hackathons-client.tsx
-│   │   ├── history-client.tsx
-│   │   ├── logout-button.tsx
-│   │   ├── navbar.tsx
-│   │   └── sites-client.tsx
-│   │
-│   ├── lib/
-│   │   ├── supabase/                # Supabase client configurations
-│   │   ├── auth.ts
-│   │   ├── queries.ts               # Database queries & server actions
-│   │   ├── types.ts                 # TypeScript interfaces
-│   │   └── validations.ts
-│   │
-│   └── middleware.ts                # Auth middleware
-│
-└── README.md                        # (You can add this now)
-```
+I regularly participate in hackathons and wanted a single place to organize everything related to them.
 
----
-
-## 🎯 Why I Built This
-
-I participate in hackathons regularly and wanted a single place to:
+Instead of switching between spreadsheets, note-taking applications, browser bookmarks, and GitHub repositories, I wanted a workspace where I could:
 
 * Track registrations and deadlines
-* Manage ongoing projects
+* Organize ongoing projects
 * Record achievements
-* Capture lessons learned
-* Build a searchable history of my work
+* Document lessons learned
+* Build a searchable history of past hackathons
 
-HackTrack became that workspace.
+HackTrack was built to solve that problem.
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 * GitHub API integration
-* Automatic repository statistics
-* Calendar export (Google Calendar / iCal)
-* Export journals and learnings
+* Repository analytics
+* Google Calendar and iCal export
+* Export journals and notes
 * Improved mobile experience
-* Multi-user support with granular permissions
+* Multi-user workspaces with role-based permissions
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions, suggestions, and feedback are always welcome.
+Contributions, suggestions, and feedback are welcome.
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Open a pull request
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes.
+4. Open a pull request.
 
 ---
 
-## 📄 License
+## Author
 
-MIT License
+**Gopal Gupta**
 
-Feel free to use, modify, and build upon this project.
+GitHub: https://github.com/gopal092003
+
+---
+
+## License
+
+This project is licensed under the MIT License.
